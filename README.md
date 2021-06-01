@@ -19,6 +19,7 @@ https://csv-drukteinis.netlify.app/
 To run this project locally follow these steps:
 
 - Go to your project directory using Visual Studio Code;
+- Add your MongoDb url string to .env file in server directory;
 - Open two terminal windows side by side in VS Code;
 - Run `cd client`in one of them to access react client directory;
 - Run ```npm i && npm start``` to start the react app;
