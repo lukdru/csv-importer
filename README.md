@@ -28,4 +28,12 @@ To run this project locally follow these steps:
 - Open another terminal tab;
 - Navigate to `http://localhost:3000/` to access the app;
 
+## Upcoming changes
+* Jest Testing;
+* Update data full implementation;
+* Visual changes;
+* Adding user authorization;
+* Complex data validation;
+* Performance improvements;
+
 @ Lukas Drukteinis
