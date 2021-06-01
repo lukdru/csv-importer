@@ -13,7 +13,7 @@ Project is created using:
 ## Demonstration
 To try this project, navigate to the following link:
 
-https://csv-drukteinis.herokuapp.com/
+https://csv-drukteinis.netlify.app/
 
 ## Setup locally
 To run this project locally follow these steps:

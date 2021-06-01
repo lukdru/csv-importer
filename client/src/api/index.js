@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = 'https://csv-drukteinis.herokuapp.com/';
+//const url = 'http://localhost:5000/data';
+const url = 'https://csv-drukteinis.herokuapp.com/data';
 
 export const fetchData = () => axios.get(url);
 export const importData = (newData) => axios.post(url, newData);

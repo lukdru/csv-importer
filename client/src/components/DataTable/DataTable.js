@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableContainer, TableHeader, TableHeaderColumn, TableRow, TableCell, TableHead, TableRowColumn } from '@material-ui/core';
+import { TextField, Table, TableHead, TableBody, TableContainer, TableRow, TableCell, TableRowColumn, CircularProgress } from '@material-ui/core';
 import { Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteData, updateData } from '../../actions/data';
+import { deleteData, updateData, setData } from '../../actions/data';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -11,17 +11,19 @@ import useStyles from './styles';
 const DataTable = ({ currentId, setCurrentId, header }) => {
   const [dataData, setData] = useState({ companyName: '', isinCode: '', recommendation: '', lastPrice: '', targetPrice: '' , upside: '' , country: '', industry: '', freeFloat: ''  });
   const data = useSelector((state) => state.data);
+  
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const currentlyEditing = 0;
+  
   useEffect(() => {
       if (data) setData(data);
     }, [data]);
 
-  const currentlyEditing = 1;
-  
   const handleEdit = (id) => {
-    dispatch(updateData(id))
+    // TODO Edit logic
+    window.alert('Edit functionality will be implemented in the next release');
   }
 
   const handleDelete = (id) => {
@@ -31,7 +33,8 @@ const DataTable = ({ currentId, setCurrentId, header }) => {
   }
 
   return (
-    <TableContainer component={Paper} style={{ maxHeight: 500 }}>
+    !data.length ? <CircularProgress /> : (
+      <TableContainer component={Paper} style={{ maxHeight: 500 }}>
       <Table className={classes.table} aria-label="table" stickyHeader>
         <TableHead>
           <TableRow>
@@ -53,7 +56,7 @@ const DataTable = ({ currentId, setCurrentId, header }) => {
               <TableCell component="th" scope="row">
                 {row.companyName}
               </TableCell>
-              <TableCell align="right">{row.isinCode}</TableCell>
+              <TableCell align="right">{currentlyEditing ? <TextField/> : row.isinCode}</TableCell>
               <TableCell align="right">{row.recommendation}</TableCell>
               <TableCell align="right">{row.lastPrice}</TableCell>
               <TableCell align="right">{row.upside}</TableCell>
@@ -67,6 +70,7 @@ const DataTable = ({ currentId, setCurrentId, header }) => {
         </TableBody>
       </Table>
     </TableContainer>
+    )
   );
 }
 

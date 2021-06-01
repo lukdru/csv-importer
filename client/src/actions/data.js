@@ -22,11 +22,11 @@ export const importData = (data) => async (dispatch) => {
   }
 };
 
-export const updateData = (id, data) => async (dispatch) => {
+export const updateData = (id, inputData) => async (dispatch) => {
   try {
-    const { tempData } = await api.updateData(id, data);
+    const { data } = await api.updateData(id, inputData);
 
-    dispatch({ type: UPDATE, payload: tempData });
+    dispatch({ type: UPDATE, payload: data });
   } catch (error) {
     console.log(error.message);
   }
